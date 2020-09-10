@@ -18,7 +18,8 @@ public class CustomerController {
 
     @GetMapping(value = "/customers")
     public ResponseEntity<List<Customer>> getAllCustomers(
-            @RequestParam(name = "course", required = false) String courseName) {
+            @RequestParam(name = "course", required = false) String courseName,
+            @RequestParam(name = "town", required = false) String town) {
         if (courseName != null) {
             return new ResponseEntity<>(customerRepository.findByBookingsCourseName(courseName), HttpStatus.OK);
         }

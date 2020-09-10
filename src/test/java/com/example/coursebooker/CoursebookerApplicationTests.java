@@ -54,4 +54,10 @@ class CoursebookerApplicationTests {
 		assertEquals(1, foundBookings.size());
 	}
 
+	@Test
+	public void canFindCustomersByCourseNameAndTown() {
+		List<Customer> foundCustomers = customerRepository.findByBookingsCourseNameAndTown("Advanced Ruby", "Newry");
+		assertEquals("Ronan Hughes", foundCustomers.get(0).getName());
+	}
+
 }
