@@ -31,7 +31,7 @@ public class Customer {
         this.name = name;
         this.town = town;
         this.age = age;
-        this.bookings = new ArrayList<Booking>();
+        this.bookings = new ArrayList<>();
     }
 
     public Customer() {}
