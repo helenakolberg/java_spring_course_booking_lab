@@ -41,4 +41,10 @@ class CoursebookerApplicationTests {
 		assertEquals("Helena Kolberg", foundCustomers.get(0).getName());
 	}
 
+	@Test
+	public void canFindCoursesByCustomerName() {
+		List<Course> foundCourses = courseRepository.findByBookingsCustomerName("Helena Kolberg");
+		assertEquals("Mushroom Foraging 101", foundCourses.get(0).getName());
+	}
+
 }
