@@ -31,4 +31,10 @@ public class CustomerController {
         customerRepository.deleteById(id);
         return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
     }
+
+    @PostMapping(value = "/customers")
+    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
+       customerRepository.save(customer);
+       return new ResponseEntity(customer, HttpStatus.CREATED);
+    }
 }
