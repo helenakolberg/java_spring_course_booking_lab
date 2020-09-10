@@ -1,6 +1,7 @@
 package com.example.coursebooker;
 
 import com.example.coursebooker.models.Course;
+import com.example.coursebooker.models.Customer;
 import com.example.coursebooker.repositories.BookingRepository;
 import com.example.coursebooker.repositories.CourseRepository;
 import com.example.coursebooker.repositories.CustomerRepository;
@@ -29,9 +30,15 @@ class CoursebookerApplicationTests {
 	}
 
 	@Test
-	void canFindCourseByRating() {
+	public void canFindCourseByRating() {
 		List<Course> foundCourses = courseRepository.findByRating(4);
 		assertEquals(1, foundCourses.size());
+	}
+
+	@Test
+	public void canFindCustomersByCourseName() {
+		List<Customer> foundCustomers = customerRepository.findByBookingsCourseName("Mushroom Foraging 101");
+		assertEquals("Helena Kolberg", foundCustomers.get(0).getName());
 	}
 
 }
